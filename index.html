@@ -10,6 +10,12 @@
             display: block;
             margin-top: 20px;
         }
+        .correct-answer {
+            color: green;
+        }
+        .incorrect-answer {
+            color: red;
+        }
     </style>
 </head>
 <body>
@@ -22,6 +28,7 @@
             <option value="is">is</option>
             <option value="are">are</option>
         </select> a doctor.
+        <span id="q1-correct" class="correct-answer" style="display:none;">Correct answer: is</span>
     </div>
 
     <div class="exercise">
@@ -31,6 +38,7 @@
             <option value="are">are</option>
             <option value="am">am</option>
         </select> happy.
+        <span id="q2-correct" class="correct-answer" style="display:none;">Correct answer: are</span>
     </div>
 
     <div class="exercise">
@@ -40,6 +48,7 @@
             <option value="am">am</option>
             <option value="are">are</option>
         </select> a teacher.
+        <span id="q3-correct" class="correct-answer" style="display:none;">Correct answer: am</span>
     </div>
 
     <div class="exercise">
@@ -49,6 +58,7 @@
             <option value="is">is</option>
             <option value="are">are</option>
         </select> my friend.
+        <span id="q4-correct" class="correct-answer" style="display:none;">Correct answer: are</span>
     </div>
 
     <div class="exercise">
@@ -58,6 +68,7 @@
             <option value="is">is</option>
             <option value="are">are</option>
         </select> students.
+        <span id="q5-correct" class="correct-answer" style="display:none;">Correct answer: are</span>
     </div>
 
     <div class="exercise">
@@ -67,6 +78,7 @@
             <option value="are">are</option>
             <option value="am">am</option>
         </select> from Canada.
+        <span id="q6-correct" class="correct-answer" style="display:none;">Correct answer: is</span>
     </div>
 
     <button class="submit-btn" onclick="checkAnswers()">Submit</button>
@@ -75,26 +87,32 @@
 
     <div class="exercise">
         1. My father <input type="text" id="q7" placeholder="____"> a pilot.
+        <span id="q7-correct" class="correct-answer" style="display:none;">Correct answer: is</span>
     </div>
 
     <div class="exercise">
         2. They <input type="text" id="q8" placeholder="____"> in the park.
+        <span id="q8-correct" class="correct-answer" style="display:none;">Correct answer: are</span>
     </div>
 
     <div class="exercise">
         3. I <input type="text" id="q9" placeholder="____"> excited about the trip.
+        <span id="q9-correct" class="correct-answer" style="display:none;">Correct answer: am</span>
     </div>
 
     <div class="exercise">
         4. You <input type="text" id="q10" placeholder="____"> my best friend.
+        <span id="q10-correct" class="correct-answer" style="display:none;">Correct answer: are</span>
     </div>
 
     <div class="exercise">
         5. We <input type="text" id="q11" placeholder="____"> from Australia.
+        <span id="q11-correct" class="correct-answer" style="display:none;">Correct answer: are</span>
     </div>
 
     <div class="exercise">
         6. He <input type="text" id="q12" placeholder="____"> very tall.
+        <span id="q12-correct" class="correct-answer" style="display:none;">Correct answer: is</span>
     </div>
 
     <button class="submit-btn" onclick="checkFillInBlanks()">Submit</button>
@@ -113,8 +131,11 @@
 
             for (let key in answers) {
                 const answer = document.getElementById(key).value;
+                const correctAnswerElement = document.getElementById(`${key}-correct`);
                 if (answer === answers[key]) {
                     score++;
+                } else {
+                    correctAnswerElement.style.display = 'inline';
                 }
             }
             alert('You scored ' + score + ' out of 6');
@@ -133,8 +154,11 @@
 
             for (let key in answers) {
                 const answer = document.getElementById(key).value.trim().toLowerCase();
+                const correctAnswerElement = document.getElementById(`${key}-correct`);
                 if (answer === answers[key]) {
                     score++;
+                } else {
+                    correctAnswerElement.style.display = 'inline';
                 }
             }
             alert('You scored ' + score + ' out of 6');
@@ -142,5 +166,3 @@
     </script>
 </body>
 </html>
-
-"
